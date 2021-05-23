@@ -14,7 +14,7 @@ def trend_kr(request):
     df = pd.read_csv("Trends_kr.csv")
     
     return render(request, 'trend_kr.html', context)
-
+  
 def trend_sa(request):
     pytrend = TrendReq()
     trend_sa = pytrend.trending_searches(pn='south_africa')
