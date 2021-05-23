@@ -15,9 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from main.views import index
+from main.views import index, trend_kr
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',index,name='index'),
+    path('trend_kr/',trend_kr,name='trend_kr'),
 ]
