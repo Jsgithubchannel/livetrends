@@ -3,6 +3,9 @@ from pytrends.request import TrendReq
 import pandas as pd
 import json
 
+def index(request):
+    return render(request, 'index.html')
+
 def trend_sa(request):
     pytrend = TrendReq()
     trend_sa = pytrend.trending_searches(pn='south_africa')
