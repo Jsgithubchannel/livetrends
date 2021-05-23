@@ -21,10 +21,10 @@ def trend_sa(request):
 
     trend_sa.to_csv('Trends_SA.csv', encoding='utf-8-sig')
     df = pd.read_csv("Trends_SA.csv")
-    
-    return render(request, 'trend_sa.html', context)
 
     json_records = df.reset_index().to_json(orient ='records')
     data = []
     data = json.loads(json_records)
     context = {'d': data}
+
+    return render(request, 'trend_sa.html', context)
