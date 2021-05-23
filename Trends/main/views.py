@@ -36,3 +36,18 @@ def trend_sa(request):
     context = {'d': data}
 
     return render(request, 'trend_sa.html', context)
+
+
+def trend_us(request):
+    pytrend = TrendReq()
+    trend_us = pytrend.trending_searches(pn='united_states')
+
+    trend_us.to_csv('Trends_US.csv', encoding='utf-8-sig')
+    df = pd.read_csv("Trends_US.csv")
+
+    json_records = df.reset_index().to_json(orient='records')
+    data = []
+    data = json.loads(json_records)
+    context = {'d': data}
+
+    return render(request, 'trend_us.html', context)
