@@ -1,11 +1,13 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
     <link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
 
 </head>
@@ -116,3 +118,20 @@
     
     <!-- HTML -->
     <div id="chartdiv"></div>
+
+    <div class="container">
+        <p>You can see today's trends in South Korea, United States,
+            <br>Germany, and South Africa
+        </p>
+        <p class="emphasis">Select a country below 👇</p>
+        <div class="countries">
+           
+            <a href="{% url 'trend_all' country='kr' %}">한국</a>
+            <a href="{% url 'trend_all' country='sa' %}">남아프리카</a>
+            <a href="{% url 'trend_all' country='ge' %}">독일</a>
+            <a href="{% url 'trend_all' country='us' %}">미국</a>
+        </div>
+    </div>
+</body>
+
+</html>
