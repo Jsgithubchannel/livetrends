@@ -49,10 +49,16 @@ def getTrend(country):
         videoURLs.append(
             'https://www.youtube.com/results?search_query=' + topic)
 
+    naverURLs = []
+    for topic in topics:
+        topic = topic.replace(' ', '+')
+        naverURLs.append(
+            'https://search.naver.com/search.naver?where=news&sm=tab_jum&query=' + topic)
+
 
     data = []
     for i in range(0, 20):
-        data.append({'index': i+1, 'd': jsonData[i], 'videoURL': videoURLs[i]})
+        data.append({'index': i+1, 'd': jsonData[i], 'videoURL': videoURLs[i], 'naverURL': naverURLs[i]})
 
     print(data)
     
