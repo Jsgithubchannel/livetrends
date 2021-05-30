@@ -1,11 +1,20 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trend Korea</title>
+    <link rel="stylesheet" href="{% static 'css/trend.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script> -->
+
+    <title>Trends in South Korea</title>
 </head>
+
 <body>
     <div class="container">
         <h2 class="text-center"><p>Trends in South Korea</p></h2><br>
@@ -18,11 +27,11 @@
             </thead>
             <tbody>
                 <!-- jinja2 Technique -->
-                {% if d %}
-                {% for i in d %}
+                {% if data %}
+                {% for element in data %}
                 <tr>
-                    <td>{{i.index}}</td>
-                    <td>{{i.0}}</td>
+                    <td>{{element.index}}</td>
+                <td> <a href={{element.videoURL}}>{{element.d.0}} </a>  </td>
                 </tr>
                 {% endfor %}
                 {% endif %}
@@ -30,4 +39,5 @@
         </table>
     </div>
 </body>
+
 </html>
