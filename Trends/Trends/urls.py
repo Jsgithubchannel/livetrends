@@ -1,4 +1,4 @@
-"""Trends URL Configuration
+"""trends URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.2/topics/http/urls/
@@ -15,12 +15,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from main.views import index, trend_sa, trend_kr,trend_us
+# from main.views import index, trend_kr, trend_sa, trend_ge, trend_us
+from main.views import index, trend_all
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',index, name='index'),
-    path('trend_sa/',trend_sa, name='trend_sa'),
-    path('trend_kr/',trend_kr,name='trend_kr'),
-    path('trend_us/',trend_us,name='trend_us'),
+    path('', index, name='index'),
+
+    # path('trend_kr/', trend_kr, name='trend_kr'),
+    # path('trend_sa/', trend_sa, name='trend_sa'),
+    # path('trend_ge/', trend_ge, name='trend_ge'),
+    # path('trend_us/', trend_us, name='trend_us'),
+    path('trend/<str:country>', trend_all, name='trend_all'),
 ]
