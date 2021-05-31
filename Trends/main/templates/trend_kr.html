@@ -23,6 +23,7 @@
                 <tr>
                     <th>Rank</th>
                     <th>Topic</th>
+                    <th>Article</th>
                 </tr>
             </thead>
             <tbody>
@@ -31,7 +32,9 @@
                 {% for element in data %}
                 <tr>
                     <td>{{element.index}}</td>
+                    
                 <td> <a href={{element.videoURL}}>{{element.d.0}} </a>  </td>
+                <td> <a href={{element.naverURL}}>{{element.d.0}}기사보러가기</a></td>
                 </tr>
                 {% endfor %}
                 {% endif %}
