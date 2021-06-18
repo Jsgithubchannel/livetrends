@@ -60,7 +60,7 @@ def getTrend(country):
     for i in range(0, 20):
         data.append({'index': i+1, 'd': jsonData[i], 'videoURL': videoURLs[i], 'naverURL': naverURLs[i]})
 
-    print(data)
+    # print(data)
     
     return {'data': data}
 

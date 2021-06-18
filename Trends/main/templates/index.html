@@ -7,34 +7,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-
     <link rel="stylesheet" type="text/css" href="{% static 'index.css' %}">
-
-
-
 </head>
 
 
 <body>
-
     <!-- HTML -->
     <div id="chartdiv"></div>
-    <div>
-        <!-- "Icon made by Those Icons perfect from www.flaticon.com" -->
-        <img src="{% static 'img/pin.png' %}" alt="" class="pin">
-    </div>
 
-    <!-- Resources -->
     <script src="https://cdn.amcharts.com/lib/4/core.js"></script>
     <script src="https://cdn.amcharts.com/lib/4/maps.js"></script>
     <script src="https://cdn.amcharts.com/lib/4/geodata/worldLow.js"></script>
     <script src="https://cdn.amcharts.com/lib/4/themes/dataviz.js"></script>
     <script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
-
-    <!-- Chart code -->
     <script>
         am4core.ready(function () {
-
             // Themes begin
             am4core.useTheme(am4themes_dataviz);
             am4core.useTheme(am4themes_animated);
@@ -42,8 +29,6 @@
 
             /* Create map instance */
             var chart = am4core.create("chartdiv", am4maps.MapChart);
-
-            console.log(chart.geodata)
 
             /* Set map definition */
             chart.geodata = am4geodata_worldLow;
@@ -65,8 +50,11 @@
             polygonTemplate.nonScalingStroke = true;
             polygonTemplate.strokeOpacity = 0.5;
             polygonTemplate.fill = chart.colors.getIndex(0);
-            var lastSelected;
+
             
+        
+
+            var lastSelected;
             polygonTemplate.events.on("hit", function (ev) {
                 if (lastSelected) {
                     // This line serves multiple purposes:
@@ -80,23 +68,18 @@
                 if (lastSelected !== ev.target) {
                     lastSelected = ev.target;
                 }
-                
-                console.log(ev.target.dataItem.dataContext.name) //나라 이름
-                if(ev.target.dataItem.dataContext.name === 'South Korea'){
-                    location.href="{% url 'trend_all' 'kr' %}"
-                }
-                else if(ev.target.dataItem.dataContext.name === 'Germany'){
-                    location.href="{% url 'trend_all' 'ge' %}"
-                }
-                else if(ev.target.dataItem.dataContext.name === 'South Africa'){
-                    location.href="{% url 'trend_all' 'sa' %}"
-                }
-                else if(ev.target.dataItem.dataContext.name === 'United States'){
-                    location.href="{% url 'trend_all' 'us' %}"
-                }
-            })
 
-
+                console.log(ev.target.dataItem.dataContext.name); //나라 이름
+                if (ev.target.dataItem.dataContext.name === "South Korea") {
+                    location.href = "{% url 'trend_all' 'kr' %}";
+                } else if (ev.target.dataItem.dataContext.name === "Germany") {
+                    location.href = "{% url 'trend_all' 'ge' %}";
+                } else if (ev.target.dataItem.dataContext.name === "South Africa") {
+                    location.href = "{% url 'trend_all' 'sa' %}";
+                } else if (ev.target.dataItem.dataContext.name === "United States") {
+                    location.href = "{% url 'trend_all' 'us' %}";
+                }
+            });
 
             /* Create selected and hover states and set alternative fill color */
             var ss = polygonTemplate.states.create("active");
@@ -104,6 +87,8 @@
 
             var hs = polygonTemplate.states.create("hover");
             hs.properties.fill = chart.colors.getIndex(4);
+
+            console.log(polygonTemplate.map.getKey("id-1056"));
 
             // Hide Antarctica
             polygonSeries.exclude = ["AQ"];
@@ -117,7 +102,6 @@
 
             // // Zoom control
             // chart.zoomControl = new am4maps.ZoomControl();
-
             var homeButton = new am4core.Button();
             homeButton.events.on("hit", function () {
                 chart.goHome();
@@ -126,20 +110,15 @@
             homeButton.icon = new am4core.Sprite();
             homeButton.padding(7, 5, 7, 5);
             homeButton.width = 30;
-            homeButton.icon.path = "M16,8 L14,8 L14,16 L10,16 L10,10 L6,10 L6,16 L2,16 L2,8 L0,8 L8,0 L16,8 Z M16,8";
+            homeButton.icon.path =
+                "M16,8 L14,8 L14,16 L10,16 L10,10 L6,10 L6,16 L2,16 L2,8 L0,8 L8,0 L16,8 Z M16,8";
             homeButton.marginBottom = 10;
             // homeButton.parent = chart.zoomControl;
             // homeButton.insertBefore(chart.zoomControl.plusButton);
         }); // end am4core.ready()
 
-        const germany = document.querySelector("#id-1321");
-        console.log(germany);
-
-
-
+        
     </script>
-
-
 </body>
 
 </html>
