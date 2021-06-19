@@ -15,14 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-# from main.views import index, trend_kr, trend_sa, trend_ge, trend_us
+# from main.views import index, trend_uk, trend_sa, trend_ge, trend_us
 from main.views import index, trend_all
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index, name='index'),
 
-    # path('trend_kr/', trend_kr, name='trend_kr'),
+    # path('trend_uk/', trend_uk, name='trend_uk'),
     # path('trend_sa/', trend_sa, name='trend_sa'),
     # path('trend_ge/', trend_ge, name='trend_ge'),
     # path('trend_us/', trend_us, name='trend_us'),
