@@ -12,3 +12,7 @@ db.sqlite3-journal
 media
 myvenv/
 migrations/
+Trends_ge.csv
+Trends_kr.csv
+Trends_SA.csv
+Trends_US.csv

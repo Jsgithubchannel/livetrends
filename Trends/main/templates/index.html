@@ -51,8 +51,43 @@
             polygonTemplate.strokeOpacity = 0.5;
             polygonTemplate.fill = chart.colors.getIndex(0);
 
-            
-        
+            // Create image series
+            var imageSeries = chart.series.push(new am4maps.MapImageSeries());
+
+            // Create image
+            var imageSeriesTemplate = imageSeries.mapImages.template;
+            var marker = imageSeriesTemplate.createChild(am4core.Image);
+            marker.href = "https://s3-us-west-2.amazonaws.com/s.cdpn.io/t-160/marker.svg";
+            marker.width = 40;
+            marker.height = 40;
+            marker.nonScaling = true;
+            marker.tooltipText = "{title}";
+            marker.horizontalCenter = "middle";
+            marker.verticalCenter = "bottom";
+
+            // Set property fields
+            imageSeriesTemplate.propertyFields.latitude = "latitude";
+            imageSeriesTemplate.propertyFields.longitude = "longitude";
+
+            // Add data for the three cities
+            imageSeries.data = [{
+                "latitude": 55.3781,
+                "longitude": -2.4333,
+                "title": "United Kingdom"
+            }, {
+                "latitude": 39.791000,
+                "longitude": -86.148003,
+                "title": "United States"
+            }, {
+                "latitude": 36.2048,
+                "longitude": 138.2529,
+                "title": "Japan"
+            }, {
+                "latitude":37.5665,
+                "longitude": 126.9780,
+                "title": "South Korea"
+            }];
+
 
             var lastSelected;
             polygonTemplate.events.on("hit", function (ev) {
@@ -117,7 +152,7 @@
             // homeButton.insertBefore(chart.zoomControl.plusButton);
         }); // end am4core.ready()
 
-        
+
     </script>
 </body>
 
