@@ -1,5 +1,7 @@
 
 p{
+    font-size: 45px;
+    margin-top: 20px !important;
     color: white;
 }
 table {
@@ -19,4 +21,27 @@ tr{
 }
 .container{
     width: 50% !important;
+}
+/* .icon{
+    text-align: right;
+    margin: 3px;
+} */
+
+.icons{
+    display: flex;
+    justify-content: flex-end;
+}
+.icon{
+    margin: 0 10px;
+}
+tbody, thead{
+    text-align: center;
+}
+
+.topicelements{
+    padding-left: 12% !important;
+}
+
+.topics{
+    padding-left: 12% !important;
 }

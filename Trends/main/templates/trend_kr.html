@@ -15,19 +15,23 @@
     <title>Trends in South Korea</title>
 </head>
 <style>
-    body{
-        background-color:  #101421;
+    body {
+        background-color: #101421;
     }
 </style>
+
 <body>
     <div class="container">
-        <h2 class="text-center"><p>Trends in South Korea</p></h2><br>
+        <h2 class="text-center">
+            <p>Trends in South Korea</p>
+        </h2><br>
         <table class="table table-borderless">
             <thead>
                 <tr>
                     <th>Rank</th>
-                    <th>Topic</th>
-                    <th>Article</th>
+                    <th class='topics'>Topic</th>
+
+
                 </tr>
             </thead>
             <tbody>
@@ -36,14 +40,23 @@
                 {% for element in data %}
                 <tr>
                     <td>{{element.index}}</td>
-                    
-                <td> <a href={{element.videoURL}}>{{element.d.0}} </a>  </td>
-                <td> <a href={{element.naverURL}}>
-                    <img src='https://littledeep.com/wp-content/uploads/2020/09/naver-icon-style.png' width="25" height="25">
-                </a></td>
-                <td> <a href={{element.googleURL}}>
-                    <img src='https://image.flaticon.com/icons/png/512/300/300221.png' width="25" height="25">
-                </a></td>
+
+                    <td class='topicelements'> {{element.d.0}} </td>
+
+                    <td class="icons">
+                        <div class="icon"> <a href={{element.naverURL}}>
+                                <img src='https://res.cloudinary.com/crunchbase-production/image/upload/c_lpad,f_auto,q_auto:eco/v1504499304/in36bktetqoapibgeabo.png'
+                                    width="25" height="25">
+                            </a></div>
+                        <div class="icon"> <a href={{element.videoURL}}>
+                                <img src="https://image.flaticon.com/icons/png/512/1384/1384060.png" width="25"
+                                    height="25">
+                            </a></div>
+                        <div class="icon"> <a href={{element.googleURL}}>
+                                <img src='https://image.flaticon.com/icons/png/512/300/300221.png' width="25"
+                                    height="25">
+                            </a></div>
+                    </td>
                 </tr>
                 {% endfor %}
                 {% endif %}
