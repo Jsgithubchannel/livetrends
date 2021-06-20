@@ -107,10 +107,10 @@
                 console.log(ev.target.dataItem.dataContext.name); //나라 이름
                 if (ev.target.dataItem.dataContext.name === "South Korea") {
                     location.href = "{% url 'trend_all' 'kr' %}";
-                } else if (ev.target.dataItem.dataContext.name === "Germany") {
-                    location.href = "{% url 'trend_all' 'ge' %}";
-                } else if (ev.target.dataItem.dataContext.name === "South Africa") {
-                    location.href = "{% url 'trend_all' 'sa' %}";
+                } else if (ev.target.dataItem.dataContext.name === "Japan") {
+                    location.href = "{% url 'trend_all' 'jp' %}";
+                } else if (ev.target.dataItem.dataContext.name === "United Kingdom") {
+                    location.href = "{% url 'trend_all' 'uk' %}";
                 } else if (ev.target.dataItem.dataContext.name === "United States") {
                     location.href = "{% url 'trend_all' 'us' %}";
                 }
