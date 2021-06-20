@@ -1,22 +1,48 @@
-<div class="container">
-    <h2 class="text-center"><p>Trends in South Africa</p></h2><br>
-    <table class="table table-dark table-striped">
-        <thead>
-            <tr>
-                <th>Rank</th>
-                <th>Topic</th>
-            </tr>
-        </thead>
-        <tbody>
-            <!-- jinja2 Technique -->
-            {% if d %}
-            {% for i in d %}
-            <tr>
-                <td>{{i.index}}</td>
-                <td>{{i.0}}</td>
-            </tr>
-            {% endfor %}
-            {% endif %}
-        </tbody>
-    </table>
-</div>
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/trend.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script> -->
+
+    <title>Trends in South Korea</title>
+</head>
+
+<body>
+    <div class="container">
+        <h2 class="text-center"><p>Trends in South Korea</p></h2><br>
+        <table class="table table-dark table-striped">
+            <thead>
+                <tr>
+                    <th>Rank</th>
+                    <th>Topic</th>
+                    <th>Naver Article</th>
+                    <th>Google</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- jinja2 Technique -->
+                {% if data %}
+                {% for element in data %}
+                <tr>
+                    <td>{{element.index}}</td>
+                    
+                <td> <a href={{element.videoURL}}>{{element.d.0}} </a>  </td>
+                <td> <a href={{element.naverURL}}>{{element.d.0}} 기사보러가기</a></td>
+                <td> <a href={{element.googleURL}}>{{element.d.0}} 구글</a></td>
+                </tr>
+                {% endfor %}
+                {% endif %}
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>

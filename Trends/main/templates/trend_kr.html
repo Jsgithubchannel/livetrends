@@ -23,7 +23,8 @@
                 <tr>
                     <th>Rank</th>
                     <th>Topic</th>
-                    <th>Article</th>
+                    <th>Naver Article</th>
+                    <th>Google</th>
                 </tr>
             </thead>
             <tbody>
@@ -34,7 +35,8 @@
                     <td>{{element.index}}</td>
                     
                 <td> <a href={{element.videoURL}}>{{element.d.0}} </a>  </td>
-                <td> <a href={{element.naverURL}}>{{element.d.0}}기사보러가기</a></td>
+                <td> <a href={{element.naverURL}}>{{element.d.0}} 기사보러가기</a></td>
+                <td> <a href={{element.googleURL}}>{{element.d.0}} 구글</a></td>
                 </tr>
                 {% endfor %}
                 {% endif %}

@@ -37,8 +37,8 @@ def getTrend(country):
     json_records = df.reset_index().to_json(orient='records')
     jsonData = []
     jsonData = json.loads(json_records)
-
-
+    
+    print(jsonData)
     # topic은 구글 트렌드 제목임. 제목들을 합쳐서 list로 변경
     topics = df['0'].tolist()
 
@@ -55,10 +55,17 @@ def getTrend(country):
         naverURLs.append(
             'https://search.naver.com/search.naver?where=news&sm=tab_jum&query=' + topic)
 
+    googleURLs=[]
+    for topic in topics:
+        topic = topic.replace(' ','+')
+        googleURLs.append(
+            'https://www.google.com/search?q='+topic+'&newwindow=1&sxsrf=ALeKk01fTIbPHY0S5JArWZwx982u9Rc-iA:1622361169905&source=lnms&tbm=nws&sa=X&ved=2ahUKEwjF0eqp9vDwAhUKCqYKHTHmAJ8Q_AUoAXoECAEQAw&biw=1536&bih=722'
+        )
+
 
     data = []
     for i in range(0, 20):
-        data.append({'index': i+1, 'd': jsonData[i], 'videoURL': videoURLs[i], 'naverURL': naverURLs[i]})
+        data.append({'index': i+1, 'd': jsonData[i], 'videoURL': videoURLs[i], 'naverURL': naverURLs[i], 'googleURL':googleURLs[i]})
 
     print(data)
     
