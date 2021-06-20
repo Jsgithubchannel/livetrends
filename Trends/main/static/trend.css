@@ -1,0 +1,22 @@
+
+p{
+    color: white;
+}
+table {
+background:#191F2C;
+border-style: solid;
+border-color: #464A54;
+border-radius: 2.5%;
+border-collapse: inherit !important;
+border-width: 1px;
+}
+
+body{
+    background-color:  #283250;
+}
+tr{
+    color: white;
+}
+.container{
+    width: 50% !important;
+}
