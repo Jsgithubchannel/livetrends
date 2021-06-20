@@ -33,8 +33,13 @@
                 <tr>
                     <td>{{element.index}}</td>
                     
-                <td> <a href={{element.videoURL}}>{{element.d.0}}</a></td>
-                <td> <a href={{element.naverURL}}>{{element.d.0}}</a></td>
+                <td> <a href={{element.videoURL}}>{{element.d.0}} </a>  </td>
+                <td> <a href={{element.naverURL}}>
+                    <img src='https://littledeep.com/wp-content/uploads/2020/09/naver-icon-style.png' width="25" height="25">
+                </a></td>
+                <td> <a href={{element.googleURL}}>
+                    <img src='https://image.flaticon.com/icons/png/512/300/300221.png' width="25" height="25">
+                </a></td>
                 </tr>
                 {% endfor %}
                 {% endif %}
