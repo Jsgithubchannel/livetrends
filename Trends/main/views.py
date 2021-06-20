@@ -19,8 +19,8 @@ def index(request):
 
 def getTrend(country):
 
-    country_abbrev = {'uk': 'United Kingdom', 'ge': 'germany',
-                      'sa': 'south_africa', 'us': 'united_states'}
+    country_abbrev = {'kr': 'South Korea', 'ge': 'germany',
+                      'sa': 'south_africa', 'us': 'united_states','uk': 'United Kingdom'}
 
     pytrend = TrendReq()
     trends_kr = pytrend.trending_searches(
