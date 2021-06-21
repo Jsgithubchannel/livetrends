@@ -8,13 +8,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" type="text/css" href="{% static 'index.css' %}">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 </head>
 
 
 <body>
     <!-- HTML -->
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div id="slide1" class="swiper-slide">
+                <p>한국 1위</p>
+            </div>
+            <div id="slide2" class="swiper-slide">
+                <p>미국 1위</p>
+            </div>
+            <div id="slide3" class="swiper-slide">
+                <p>일본 1위</p>
+            </div>
+            <div id="slide4" class="swiper-slide">
+                <p>영국 1위</p>
+            </div>
+        </div>
+    </div>
     <div id="chartdiv"></div>
 
+    <!-- amcharts -->
     <script src="https://cdn.amcharts.com/lib/4/core.js"></script>
     <script src="https://cdn.amcharts.com/lib/4/maps.js"></script>
     <script src="https://cdn.amcharts.com/lib/4/geodata/worldLow.js"></script>
@@ -83,7 +101,7 @@
                 "longitude": 138.2529,
                 "title": "Japan"
             }, {
-                "latitude":37.5665,
+                "latitude": 37.5665,
                 "longitude": 126.9780,
                 "title": "South Korea"
             }];
@@ -153,6 +171,22 @@
         }); // end am4core.ready()
 
 
+    </script>
+
+    <!-- Swiper Plugin -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+        const swiper = new Swiper('.swiper-container', {
+            direction: 'vertical',
+            spaceBetween: 30,
+            effect: 'fade',
+            fadeEffect: {
+                crossFade: true
+            },
+            autoplay: {
+                delay: 3000,
+            },
+        })
     </script>
 </body>
 
