@@ -20,7 +20,9 @@ def index(request):
 def getTrend(country):
 
     country_abbrev = {'kr': 'south_korea', 'jp': 'japan',
-                      'us': 'united_states','uk': 'united_kingdom'}
+                      'us': 'united_states','uk': 'united_kingdom',
+                      'krtest': 'south_korea','jptest':'japan','ustest':'united_states',
+                      'uktest':'united_kingdom'}
 
     pytrend = TrendReq()
     trends_kr = pytrend.trending_searches(
@@ -55,16 +57,52 @@ def getTrend(country):
         naverURLs.append(
             'https://search.naver.com/search.naver?where=news&sm=tab_jum&query=' + topic)
 
+    googleURLs=[]
+    for topic in topics:
+        topic = topic.replace(' ','+')
+        googleURLs.append(
+            'https://www.google.com/search?q='+topic+'&newwindow=1&sxsrf=ALeKk01fTIbPHY0S5JArWZwx982u9Rc-iA:1622361169905&source=lnms&tbm=nws&sa=X&ved=2ahUKEwjF0eqp9vDwAhUKCqYKHTHmAJ8Q_AUoAXoECAEQAw&biw=1536&bih=722'
+        )
 
-    data = []
-    for i in range(0, 20):
-        data.append({'index': i+1, 'd': jsonData[i], 'videoURL': videoURLs[i], 'naverURL': naverURLs[i]})
+    if country=='krtest':
+        data=topics[0]
+    elif country=='uktest':
+        data=topics[0]
+    elif country=='ustest':
+        data=topics[0]
+    elif country=='jptest':
+        data=topics[0]
+    else:
+        data = []
+        for i in range(0, 20):  
+            data.append({'index': i+1, 'd': jsonData[i], 'videoURL': videoURLs[i], 'naverURL': naverURLs[i], 'googleURL':googleURLs[i]})
 
     # print(data)
     
     return {'data': data}
 
 
+
+def top(request):
+    a=[]
+    akr=(getTrend('krtest'))
+    aus=(getTrend('ustest'))
+    ajp=(getTrend('jptest'))
+    auk=(getTrend('uktest'))
+    a.append(akr['data'])
+    a.append(aus['data'])
+    a.append(ajp['data'])
+    a.append(auk['data'])
+    
+    return{'a':a}   
+
+
 def trend_all(request, country):
-    context = getTrend(country)
+    if country=='krtest':
+        context=top(request)
+    else:
+        context = getTrend(country)
     return render(request, 'trend_' + country + '.html', context)
+
+
+    
