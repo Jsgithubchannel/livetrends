@@ -9,7 +9,7 @@ import json
 
 
 def index(request):
-    return render(request, 'index.html')
+    return render(request, 'index.html', top(request))
 
 # def getYotubeResult(request):
 
@@ -102,10 +102,7 @@ def top(request):
 
 
 def trend_all(request, country):
-    if country=='krtest':
-        context=top(request)
-    else:
-        context = getTrend(country)
+    context = getTrend(country)
     return render(request, 'trend_' + country + '.html', context)
 
 
