@@ -21,6 +21,10 @@ body {
   cursor: pointer;
 }
 
+.swiper-slide p:hover {
+  background-color: rgba(90, 122, 173, 0.383);
+}
+
 #chartdiv {
   position: absolute;
   bottom: 10%;
@@ -57,5 +61,7 @@ body {
   vertical-align: middle !important;
 }
 
-a{text-decoration: none;
-  color: inherit;}
+a {
+  text-decoration: none;
+  color: inherit;
+}
