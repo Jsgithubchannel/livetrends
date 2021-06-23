@@ -18,7 +18,6 @@ def index(request):
 
 
 def getTrend(country):
-
     country_abbrev = {'kr': 'south_korea', 'jp': 'japan',
                       'us': 'united_states','uk': 'united_kingdom',
                       'krtest': 'south_korea','jptest':'japan','ustest':'united_states',
@@ -64,13 +63,7 @@ def getTrend(country):
             'https://www.google.com/search?q='+topic+'&newwindow=1&sxsrf=ALeKk01fTIbPHY0S5JArWZwx982u9Rc-iA:1622361169905&source=lnms&tbm=nws&sa=X&ved=2ahUKEwjF0eqp9vDwAhUKCqYKHTHmAJ8Q_AUoAXoECAEQAw&biw=1536&bih=722'
         )
 
-    if country=='krtest':
-        data=topics[0]
-    elif country=='uktest':
-        data=topics[0]
-    elif country=='ustest':
-        data=topics[0]
-    elif country=='jptest':
+    if country=='krtest' or country=='uktest' or country=='ustest' or country=='jptest':
         data=topics[0]
     else:
         data = []
@@ -84,26 +77,16 @@ def getTrend(country):
 
 
 def top(request):
-    a=[]
-    akr=(getTrend('krtest'))
-    aus=(getTrend('ustest'))
-    ajp=(getTrend('jptest'))
-    auk=(getTrend('uktest'))
-    a.append(akr['data'])
-    a.append(aus['data'])
-    a.append(ajp['data'])
-    a.append(auk['data'])
-    krtop=a[0]
-    ustop=a[1]
-    jptop=a[2]
-    uktop=a[3]
+    topOnes = [getTrend('krtest'), getTrend('ustest'), getTrend('jptest'), getTrend('uktest')]
+
+    krtop=topOnes[0]['data']
+    ustop=topOnes[1]['data']
+    jptop=topOnes[2]['data']
+    uktop=topOnes[3]['data']
     
-    return{'a':a,'krtop':krtop,'ustop':ustop,'jptop':jptop,'uktop':uktop}   
+    return{'krtop':krtop,'ustop':ustop,'jptop':jptop,'uktop':uktop}   
 
 
 def trend_all(request, country):
     context = getTrend(country)
     return render(request, 'trend_' + country + '.html', context)
-
-
-    
