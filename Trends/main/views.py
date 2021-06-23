@@ -93,8 +93,12 @@ def top(request):
     a.append(aus['data'])
     a.append(ajp['data'])
     a.append(auk['data'])
+    krtop=a[0]
+    ustop=a[1]
+    jptop=a[2]
+    uktop=a[3]
     
-    return{'a':a}   
+    return{'a':a,'krtop':krtop,'ustop':ustop,'jptop':jptop,'uktop':uktop}   
 
 
 def trend_all(request, country):
