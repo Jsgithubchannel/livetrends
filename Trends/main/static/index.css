@@ -56,3 +56,6 @@ body {
 .f32 .flag {
   vertical-align: middle !important;
 }
+
+a{text-decoration: none;
+  color: inherit;}
